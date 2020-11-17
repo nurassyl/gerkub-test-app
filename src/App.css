@@ -12,6 +12,7 @@
 .city {
   border: 1px solid gray;
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .district-content,
@@ -28,7 +29,7 @@
 }
 
 .cities {
-  max-width: 200px;
+  max-width: 400px;
 }
 
 .city {
