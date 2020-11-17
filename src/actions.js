@@ -1,1 +1,2 @@
 export const ADD_DISTRICT = 'ADD_DISTRICT'
+export const REMOVE_DISTRICT = 'REMOVE_DISTRICT'

@@ -1,9 +1,13 @@
+import _ from 'lodash'
 import {createStore} from 'redux';
 
 /**
  * Actions
  */
-import { ADD_DISTRICT } from './actions'
+import {
+  ADD_DISTRICT,
+  REMOVE_DISTRICT,
+} from './actions'
 
 /**
  * Initial state
@@ -21,6 +25,12 @@ function rootReducer(state = initialState, action) {
       state.districts.unshift({
         name: action.name,
       })
+
+      return Object.assign({}, state, {
+        districts: state.districts
+      })
+		case REMOVE_DISTRICT:
+      _.pullAt(state.districts, action.index)
 
       return Object.assign({}, state, {
         districts: state.districts
