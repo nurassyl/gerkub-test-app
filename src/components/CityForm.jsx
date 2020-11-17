@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {ADD_DISTRICT} from '../actions'
+import {ADD_CITY} from '../actions'
 
-class DistrictForm extends Component {
+class CityForm extends Component {
   constructor(props) {
     super(props)
 
@@ -11,18 +11,19 @@ class DistrictForm extends Component {
     }
   }
 
-  addDistrict(e) {
+  addCity(e) {
     e.preventDefault()
 
     this.state.name = this.state.name.trim()
 
     if(this.state.name === '') {
-      alert('Empty district name!')
+      alert('Empty city name!')
       return
     }
 
     this.props.dispatch({
-      type: ADD_DISTRICT,
+      type: ADD_CITY,
+      districtIndex: this.props.districtIndex,
       name: this.state.name,
     })
 
@@ -33,8 +34,8 @@ class DistrictForm extends Component {
 
   render() {
     return (
-      <form className="form" onSubmit={this.addDistrict.bind(this)}>
-        <h3>Add district:</h3>
+      <form className="form" onSubmit={this.addCity.bind(this)}>
+        <h4>Add city:</h4>
         <input
           type="text"
           onChange={event => this.setState({ name: event.target.value })}
@@ -61,4 +62,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(DistrictForm)
+)(CityForm)

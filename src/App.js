@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './App.css'
 import { REMOVE_DISTRICT, TOGGLE_MORE } from './actions'
 import DistrictForm from './components/DistrictForm'
+import CityItem from './components/CityItem'
 
 class App extends Component {
   removeDistrict(index) {
@@ -41,7 +42,7 @@ class App extends Component {
 
               {d.isMoreShown && (
                 <div className="district-more-content">
-                  More content
+                  <CityItem districtIndex={index} />
                 </div>
               )}
             </div>

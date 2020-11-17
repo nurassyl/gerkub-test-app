@@ -2,16 +2,20 @@
   margin: 15px;
 }
 
-.districts {
+.districts,
+.cities {
   margin-top: 20px;
   max-width: 400px
 }
 
-.district {
-  border-bottom: 1px solid gray;
+.district,
+.city {
+  border: 1px solid gray;
+  padding: 10px;
 }
 
-.district-content {
+.district-content,
+.city-content {
   margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
@@ -19,4 +23,15 @@
 
 .district-more-content {
   margin-left: 25px;
+  border-top: 1px solid black;
+  margin-top: 10px;
+}
+
+.cities {
+  max-width: 200px;
+}
+
+.city {
+  padding-bottom: 5px;
+  border: none;
 }
