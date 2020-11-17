@@ -9,9 +9,7 @@ import { ADD_DISTRICT } from './actions'
  * Initial state
  */
 const initialState = {
-  districts: [{
-    name: 'Qyzylorda',
-  }],
+  districts: new Array,
 };
 
 /**
