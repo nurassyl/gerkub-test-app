@@ -9,6 +9,7 @@ import {
   REMOVE_DISTRICT,
   TOGGLE_MORE,
   ADD_CITY,
+  REMOVE_CITY,
 } from './actions'
 
 /**
@@ -50,6 +51,13 @@ function rootReducer(state = initialState, action) { switch (action.type) { case
       state.districts[action.districtIndex].cities.unshift({
         name: action.name
       })
+
+      return Object.assign({}, state, {
+        districts: state.districts
+      })
+
+		case REMOVE_CITY:
+      _.pullAt(state.districts[action.districtIndex].cities, action.index)
 
       return Object.assign({}, state, {
         districts: state.districts
