@@ -8,7 +8,15 @@
 }
 
 .district {
+  border-bottom: 1px solid gray;
+}
+
+.district-content {
   margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
+}
+
+.district-more-content {
+  margin-left: 25px;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css'
-import { REMOVE_DISTRICT } from './actions'
+import { REMOVE_DISTRICT, TOGGLE_MORE } from './actions'
 import DistrictForm from './components/DistrictForm'
 
 class App extends Component {
@@ -14,6 +14,13 @@ class App extends Component {
     }
   }
 
+  toggleMore(index) {
+    this.props.dispatch({
+      type: TOGGLE_MORE,
+      index,
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -21,8 +28,22 @@ class App extends Component {
         <div className="districts">
           {this.props.store.districts.map((d, index) =>
             <div key={index} className="district">
-              <span>{d.name}</span>
-              <button onClick={this.removeDistrict.bind(this, index)}>Remove</button>
+              <div className="district-content">
+                <div>
+                  <span>{index+1}. </span>
+                  <b>{d.name}</b>
+                </div>
+                <div>
+                  <button onClick={this.toggleMore.bind(this, index)}>More..</button>
+                  <button onClick={this.removeDistrict.bind(this, index)}>Remove</button>
+                </div>
+              </div>
+
+              {d.isMoreShown && (
+                <div className="district-more-content">
+                  More content
+                </div>
+              )}
             </div>
           )}
         </div>
